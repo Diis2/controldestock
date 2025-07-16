@@ -13,6 +13,17 @@ stock = {'8475HD': [387990,10], '2175HD': [327990,4], 'JjfFHD': [424990,1],
         'GF75HD': [749990,2], 'UWU131HD': [349990,1], 'FS1230HD': [249990,0],
         }
 
+def stock_marca(marca):
+    lista=[]
+    for clave,valor in productos.items():
+        if valor[0]==marca:
+            total=0
+            lista.append(clave)
+            for cod,datos in stock.items():
+                if cod in lista:
+                   total=total+datos[1]
+    print('El stock es:', total)
+
 #Main
 def menu():
     while True:
