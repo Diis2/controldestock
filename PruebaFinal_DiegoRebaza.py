@@ -24,6 +24,28 @@ def stock_marca(marca):
                    total=total+datos[1]
     print('El stock es:', total)
 
+def busqueda_precio(p_min,p_max):
+    nombres=[]
+    for clave,valor in stock.items():
+        if p_min<=valor[0]<=p_max:
+            nombres.append(clave)
+    lista=[]
+    for cod,datos in productos.items():
+        if cod in nombres:
+            lista.append(f'{datos[0]}--{cod}')
+    if lista==[]:
+        print('No hay notebooks en ese rango de precios.')
+    else:
+        print('Los notebooks entre los precios consultas son: ',lista)
+
+def ordenar_productos():
+    if stock=={}:
+        print('No hay notebooks disponibles para mostrar.')
+    else:
+        print('------ Listado de Notebooks Ordenados ------')
+        for clave,valor in productos.items():
+            print(f'{valor[0]} - {valor[2]} - {valor[3]} - {valor[4]}')  
+
 #Main
 def menu():
     while True:
